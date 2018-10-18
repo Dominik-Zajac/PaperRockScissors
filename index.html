@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Paper, rock ,scissors</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <div class="container">
+  <div id="winningResult" class="final-result"></div>
+  <div id="lostResult" class="final-result"></div>
+  <button onclick="playerMove(1)" id="buttonPaper">PAPER</button>
+  <button onclick="playerMove(2)" id="buttonRock">ROCK</button>
+  <button onclick="playerMove(3)" id="buttonScissors">SCISSORS</button>
+  <div id="output"></div>
+  <div id="round"></div>
+  <div class="board">
+    <div id="user" class="score">User</div>
+    <div id="computer" class="score">Comp</div>                                          
+    <span id="user-score">0</span>:<span id="computer-score">0</span>
+    <div class="score" id="draw">Draw: <span id="draw-score">0</span></div>
+  </div>
+    <button class="newgame" onclick="newGame()">NEW GAME</button>
+</div>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
