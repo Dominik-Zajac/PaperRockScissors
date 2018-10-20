@@ -2,42 +2,35 @@
 <html lang="en" >
 
 <head>
-  <meta charset="UTF-8">
-  <title>Paper, rock ,scissors</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+	<meta charset="UTF-8">
+	<title>Paper, rock ,scissors</title>
+	<link rel="stylesheet" href="css/style.css">  
 </head>
 
 <body>
+	<div class="container">
+		<button data-move="paper" class="player-move" id="buttonPaper">PAPER</button>
+		<button data-move="rock" class="player-move" id="buttonRock">ROCK</button>
+		<button data-move="scissors" class="player-move" id="buttonScissors">SCISSORS</button>
+		<div id="output"></div>
+		<div id="round"></div>
+		<div class="board">
+			<div id="user" class="score">User</div>
+			<div id="computer" class="score">Comp</div>                   
+			<span id="user-score">0</span>:<span id="computer-score">0</span>
+			<div class="score" id="draw">Draw: <span id="draw-score">0</span></div>
+		</div>
+		<button class="newgame" onclick="newGame()">NEW GAME</button>
+		<div class="overlay" id="modal-overlay">
+			<div class="modal" id="modal-one">
+				<a href="#" class="close">x</a>
+				<header>GAME OVER</header>
+			<div class="content">
+				<p></p>
+			</div>
+		</div>
+	</div>
 
-  <div class="container">
-  <div id="winningResult" class="final-result"></div>
-  <div id="lostResult" class="final-result"></div>
-  <button data-move="paper" class="player-move" id="buttonPaper">PAPER</button>
-  <button data-move="rock" class="player-move" id="buttonRock">ROCK</button>
-  <button data-move="scissors" class="player-move" id="buttonScissors">SCISSORS</button>
-  <div id="output"></div>
-  <div id="round"></div>
-  <div class="board">
-    <div id="user" class="score">User</div>
-    <div id="computer" class="score">Comp</div>                                          
-    <span id="user-score">0</span>:<span id="computer-score">0</span>
-    <div class="score" id="draw">Draw: <span id="draw-score">0</span></div>
-  </div>
-    <button class="newgame" onclick="newGame()">NEW GAME</button>
-</div>
-  
-  
-
-    <script  src="js/index.js"></script>
-
-
-
-
+	<script  src="js/index.js"></script>
 </body>
-
 </html>
