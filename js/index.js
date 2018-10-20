@@ -6,11 +6,12 @@ var numberOfRoundsInformation = document.getElementById('round');
 var playerScore;
 var computerScore;
 var drawScore;
-var rounfOfGame;
+var roundOfGame;
 var computerOutcome = document.getElementById('computer-score');
 var drawOutcome = document.getElementById('draw-score');
 var playerOutcome = document.getElementById('user-score');
 var finishGame;
+var choiceMove = document.querySelectorAll('.player-move');
 //Funkcja która zostaje wywoływana gdy dana
 //rozgrywka zostanie zakończona poprzez przycisk 
 //'NewGame' - następuje reset wartości
@@ -44,31 +45,42 @@ var newGame = function() {
 
 //Nadanie wartości poniższym elementom
 //w celu poprawnego działania 'playerMove'
-var valueChoice = function(value) {
-    if (value === 1) {
-        return 'PAPER';
-    } else if (value === 2) {
-        return 'ROCK';
+  function getComputerMove() {
+  return ['paper', 'rock', 'scissors'][Math.floor(Math.random()*3)];
+  }
+function valueChoice(value) {
+    if (value == 'paper') {
+        return '0';
+    } else if (value == 'rock') {
+        return '1';
     } else {
-        return 'SCISSORS';
+        return '2';
     }
 };
+
+ for (var i = 0; i < choiceMove.length; i++) {
+        choiceMove[i].addEventListener('click', function(event){
+            var dataMove = this.getAttribute('data-move');
+            playerMove(dataMove);
+        });
+    };
+
 //Dodawanie poszczególnych wyników z informacją
 //zależne od danego ruchu(wygranej/przegranej)
 var playerMove = function(playerChoice) {
     var playerChoice;
-    var computerMove = Math.floor(Math.random() * 3 + 1);
+    var computerMove = getComputerMove();
     if (computerScore < roundOfGame && playerScore < roundOfGame) {
-        if (playerChoice - computerMove === -1 || playerChoice - computerMove === 2) {
-            resultOfTheRoundInformation.innerHTML = ('<span style="color:green;">| WIN! |</span> you played: ' + valueChoice(playerChoice) + ' computer played: ' + valueChoice(computerMove));
+        if (valueChoice(playerChoice) - valueChoice(computerMove) === -1 || valueChoice(playerChoice) - valueChoice(computerMove) === 2) {
+            resultOfTheRoundInformation.innerHTML = ('<span style="color:green;">| WIN! |</span> you played: ' + playerChoice + ' computer played: ' + computerMove);
             playerScore++;
             playerOutcome.innerHTML = playerScore;
-        } else if (playerChoice - computerMove === 0) {
-            resultOfTheRoundInformation.innerHTML = ('<span style="color:yellow;">| DRAW |</span> you played: ' + valueChoice(playerChoice) + ' computer played: ' + valueChoice(computerMove));
+        } else if (valueChoice(playerChoice) - valueChoice(computerMove) === 0) {
+            resultOfTheRoundInformation.innerHTML = ('<span style="color:yellow;">| DRAW |</span> you played: ' + playerChoice + ' computer played: ' + computerMove);
             drawScore++;
             drawOutcome.innerHTML = drawScore;
         } else {
-            resultOfTheRoundInformation.innerHTML = ('<span style="color:#c23616;">| LOSS |</span> you played: ' + valueChoice(playerChoice) + ' computer played: ' + valueChoice(computerMove));
+            resultOfTheRoundInformation.innerHTML = ('<span style="color:#c23616;">| LOSS |</span> you played: ' + playerChoice + ' computer played: ' + computerMove);
             computerScore++;
             computerOutcome.innerHTML = computerScore;
         }
@@ -77,6 +89,7 @@ var playerMove = function(playerChoice) {
         };
     };
 };
+
 finishGame = function() {
     if (playerScore > computerScore) {
         winningFinalScore.innerHTML = 'YOU WON THE ENTIRE GAME!';
