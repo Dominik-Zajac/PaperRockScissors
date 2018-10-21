@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en" >
-
-<head>
-	<meta charset="UTF-8">
-	<title>Paper, rock ,scissors</title>
-	<link rel="stylesheet" href="css/style.css">  
-</head>
-
-<body>
-	<div class="container">
-		<button data-move="paper" class="player-move" id="buttonPaper">PAPER</button>
-		<button data-move="rock" class="player-move" id="buttonRock">ROCK</button>
-		<button data-move="scissors" class="player-move" id="buttonScissors">SCISSORS</button>
-		<div id="output"></div>
-		<div id="round"></div>
-		<div class="board">
-			<div id="user" class="score">User</div>
-			<div id="computer" class="score">Comp</div>                   
-			<span id="user-score">0</span>:<span id="computer-score">0</span>
-			<div class="score" id="draw">Draw: <span id="draw-score">0</span></div>
-		</div>
-		<button class="newgame" onclick="newGame()">NEW GAME</button>
-		<div class="overlay" id="modal-overlay">
-			<div class="modal" id="modal-one">
-				<a href="#" class="close">x</a>
-				<header>GAME OVER</header>
-				<div class="content" id="content">
-					<p></p>
-				</div>
-				<table id="scoreTable">
-					
-				</table>
-			</div>
-		</div>
-	</div>
-
-	<script  src="js/index.js"></script>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <title>Paper, rock ,scissors</title>
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <div class="container">
+         <button data-move="paper" class="player-move" id="button-paper">PAPER</button>
+         <button data-move="rock" class="player-move" id="button-rock">ROCK</button>
+         <button data-move="scissors" class="player-move" id="button-scissors">SCISSORS</button>
+         <div id="output"></div>
+         <div id="round"></div>
+         <div class="board">
+            <div id="user" class="score">User</div>
+            <div id="computer" class="score">Comp</div>
+            <span id="user-score">0</span>:<span id="computer-score">0</span>
+            <div class="score" id="draw">Draw: <span id="draw-score">0</span></div>
+         </div>
+         <button class="newgame" href="#modal-two" onclick="openGame()">NEW GAME</button>
+         <div class="overlay" id="modal-overlay">
+            <div class="modal" id="modal-one">
+               <a href="#" class="close">x</a>
+               <header>GAME OVER</header>
+               <div class="content" id="content">
+                  <p> </p>
+               </div>
+               <table id="scoreTable">
+               </table>
+            </div>
+            <div class="modal" id="modal-two">
+               <a href="#" class="close">x</a>
+               <header>START GAME</header>
+               <div class="content" id="content">
+                  <form>
+                     <label>Name</label>
+                     <input type="text" id="namePlayer" name="name" placeholder="Your name..">
+                     <label>How many rounds do you want to play?</label>
+                     <input type="text" id="enteredRounds" name="round" placeholder="Number of rounds..">
+                  </form>
+               </div>
+               <button class="start-game" onclick="newGame()">start</button>
+            </div>
+         </div>
+      </div>
+      <script  src="js/index.js"></script>
+   </body>
 </html>

@@ -1,105 +1,110 @@
 body {
   margin: 0 auto;
-  background-color: grey;
+  background: linear-gradient(to bottom, #808080 40%, #669999 60%);
+  height: 100vh;
 }
 .container {
   padding: 30px;
   text-align: center;
 }
+
 /* Klasa zmieniająca wygląd 3 buttonów(papier,kamień, nożyce) */
 button {
   width: 300px;
   height: 100px;
+  margin: 15px;
+
   font-size: 25px;
-  color: #c23616;
   font-weight: bold;
+  color: #c23616;
+  
   border-radius: 5%;
   border: 3px solid #c23616;
-  margin: 15px;
+  
+
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+ 
   &:hover {
-    color: #44bd32;
+    color: green;
     border: 3px solid green;
     background-color: #D6D6D6;
-  }
-  /* Identyfikatory poszczególnych 3 buttonów mające na celu zmianę obrazków w tle */
-  #buttonPaper {
-  background-image: url("https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-019-512.png");
-  }
-  #buttonRock {
-    background-image: url("https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-007-512.png");
-  }
-  #buttonScissors {
-    background-image: url("https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-009-512.png");
-  }
-  #buttonPaper:hover{
-    background-image: url("https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-006-512.png");
-  }
-  #buttonRock:hover{
-    background-image: url("https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-027-512.png");
-  }
-  #buttonScissors:hover{
-    background-image: url("https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-014-512.png");
+
+    transition: 0.5s ease-out all;
   }
 }
 
+  /* Identyfikatory poszczególnych 3 buttonów mające na celu zmianę obrazków w tle */
+#button-paper {
+background-image: url("../images/paper.png");
+&:hover {
+  background-image: url("../images/paperHover.png");
+  }
+}
+#button-rock {
+background-image: url("../images/rock.png");
+&:hover {
+  background-image: url("../images/rockHover.png");
+  }
+}
+#button-scissors {
+background-image: url("../images/scissors.png");
+&:hover {
+  background-image: url("../images/scissorsHover.png");
+  }
+}
+
+/* Przycisk obsługujący NewGame */
+.newgame {
+  color: #0c2461;
+  border-color: #0c2461;
+}
+    
 /* Zmiana wyglądu tablicy z wynikami */
 .board {
-  border: 3px dotted #353b48;
-  border-radius: 5px;
-  text-align: center;
-  padding: 20px;
-  font-size: 35px;
-  color: #353b48;
   width: 18%;
   margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  
+  font-size: 35px;
   font-weight: bold;
+  color: #353b48;
+
+  border: 3px dotted #353b48;
+  border-radius: 5px;
   .score {
     font-size: 30px;
     font-weight: normal;
     color: #dcdde1;
   }
-  #user{
+  #user {
   float: left;
   }
-  #computer{
+  #computer {
    float: right;
   }
-  #draw-score{
-    color: #353b48;
+  #draw-score {
     font-size: 35px;
     font-weight: bold;
+    color: #353b48;
   }
 }
 
-/* Przycisk obsługujący NewGame */
-.newgame{
-  color: #0c2461;
-  border-color: #0c2461;
-}
 /* Wygląd tekstu wyświetlanego z ilością rund do wygrania*/
 #round{
   font-size: 25px;
 }
-/*Wyniki końcowe wyświetlane nad trzema buttonami */
-#winningResult{
-  color: green;
-}
-#lostResult{
-color: #c23616;
-}
 
-
-
+/*Wygląd modala */
 .overlay {
+  width: 100%;
+  height: 100%;
   display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   background: rgba(0, 0, 0, 0.7);
   
   &.show {
@@ -108,19 +113,20 @@ color: #c23616;
 }
 
 .modal {
+  width: 50%;
+  height: 80%;
+  overflow-y:scroll;
   display: none;
-  background: #fff;
   position: absolute;
+  padding: 20px;
   top: 50%;
   left: 50%;
+  background: #dcdde1;
   transform: translate3d(-50%, -50%, 0);
-  padding: 10px;
   border-radius: 5px;
-
   &.show {
     display: block;
   }
-  
   .close {
     position: absolute;
     right: 0;
@@ -128,8 +134,7 @@ color: #c23616;
     padding: 5px;
     color: #000;
     text-decoration: none;
-  }
-  
+  } 
   header {
     font-size: 20px;
     line-height: 30px;
@@ -137,7 +142,6 @@ color: #c23616;
     font-weight: bold;
     padding: 0 20px;
   }
-
   .content {
     min-height: 30px;
     padding: 5px 30px;
@@ -148,3 +152,60 @@ color: #c23616;
   }
 }
 
+#modal-two {
+  width: 20%;
+  height: 30%;
+}
+
+//Wygląd tabeli oraz wierszy
+table {
+  width: 100%;
+}
+#scoreTable {
+  text-transform: capitalize;
+  tr:hover {
+    background-color: #efefef;
+    cursor: pointer;
+    padding: 10px 0;
+  }
+  tr th {
+    background-color: #efefef;
+  }
+  td, th {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px 0;
+  }
+}
+
+//Inputy
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  label {
+    width: 100%;
+  }
+  input {
+    align-self: center;
+    max-width: 50%;
+    margin: 10px;
+  }
+}
+  .start-game {
+  width: 100px;
+  height: 50px;
+  margin: 15px;
+
+  font-size: 15px;
+  color: green;
+  text-transform: uppercase;
+  
+  border: 3px solid green;
+ 
+  &:hover {
+    box-shadow: 0px 0px 21px 2px green;
+    transition: 0.5s ease-out all;
+  }
+}
