@@ -36,6 +36,7 @@ var reset = function() {
 var openGame = function() {
     document.querySelector('#modal-overlay').classList.add('show');
     document.querySelector('#modal-two').classList.add('show');
+    document.querySelector('#modal-one').classList.remove('show');
 }
 
 //Rozpoczęcie nowej gry z wyborem ilości rund z
